@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Add Task</h1>
+<div mat-dialog-content>
+  <form [formGroup]="addTasks" (ngSubmit)="onSubmit(addTasks)">
+    <mat-form-field appearance="outline">
+      <mat-label>Task</mat-label>
+      <input
+        formControlName="task"
+        matInput
+        placeholder="Name"
+      /> </mat-form-field
+    ><br />
+    <button
+      style="margin-left: 8px"
+      mat-raised-button
+      color="primary"
+      type="submit"
+    >
+      Save
+    </button>
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  </form>
+</div>
+
+<div *ngFor="let task of tasks; let i = index">
+  {{ task }}
+  <button
+    style="margin-left: 8px"
+    mat-raised-button
+    color="warn"
+    type="submit"
+    (click)="onDelete(i)"
+  >
+    Delete
+  </button>
+
+  <button
+    style="margin-left: 8px"
+    mat-raised-button
+    color="primary"
+    type="submit"
+  >
+    Edit
+  </button>
+</div>
